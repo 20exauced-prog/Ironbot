@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Acces refuse{% endblock %}
+
+{% block content %}
+    <section class="auth-shell">
+        <div class="auth-card auth-card-strong">
+            <span class="eyebrow">Blocage temporaire</span>
+            <h1>Acces refuse</h1>
+            <p class="subtitle">
+                Trop de tentatives ont ete detectees depuis cette connexion.
+                Attends un peu avant de reessayer.
+            </p>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,15 @@
+[Unit]
+Description=Ironbot Django application
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/srv/ironbot/current
+EnvironmentFile=/srv/ironbot/shared/.env
+ExecStart=/srv/ironbot/venv/bin/gunicorn sitebot.wsgi:application -c /srv/ironbot/current/gunicorn.conf.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

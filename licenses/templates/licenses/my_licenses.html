@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Mes licences{% endblock %}
+
+{% block content %}
+    <section class="hero hero-grid">
+        <div class="hero-copy">
+            <span class="eyebrow">Espace Ironbot</span>
+            <h1>Un dashboard de licences plus net et plus premium.</h1>
+            <p class="subtitle">
+                Visualise instantanement tes acces, leur etat et leurs echeances dans une interface
+                plus proche d'un cockpit produit que d'une simple liste administrative.
+            </p>
+
+            <div class="stats">
+                <article class="stat-card stat-dark">
+                    <span class="stat-label">Total</span>
+                    <strong class="stat-value">{{ licenses|length }}</strong>
+                </article>
+                <article class="stat-card stat-dark">
+                    <span class="stat-label">Actives</span>
+                    <strong class="stat-value">{{ active_count }}</strong>
+                </article>
+                <article class="stat-card stat-dark">
+                    <span class="stat-label">Expirees</span>
+                    <strong class="stat-value">{{ expired_count }}</strong>
+                </article>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="dashboard-card dashboard-main">
+                <div class="dashboard-header">
+                    <span class="dot dot-green"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-red"></span>
+                </div>
+                <div class="dashboard-body">
+                    <div>
+                        <span class="mini-label">Acces actif</span>
+                        <strong class="big-number">{{ active_count }}</strong>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div>
+                            <span class="mini-label">Compte</span>
+                            <strong>{{ request.user.username }}</strong>
+                        </div>
+                        <div>
+                            <span class="mini-label">Visibilite</span>
+                            <strong>Privee</strong>
+                        </div>
+                        <div>
+                            <span class="mini-label">Controle</span>
+                            <strong>Securise</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-card dashboard-float">
+                <span class="mini-label">Etat global</span>
+                <strong class="float-number">
+                    {% if active_count %}
+                        OK
+                    {% else %}
+                        Vide
+                    {% endif %}
+                </strong>
+                <p>Toutes les licences visibles ici sont limitees a ton compte connecte.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="list-panel">
+        <div class="panel-head">
+            <div>
+                <h2>Inventaire des licences</h2>
+                <p>Chaque carte affiche la cle, le proprietaire et la date de validite dans un format plus lisible.</p>
+            </div>
+            <span class="badge">{{ active_count }} licence{{ active_count|pluralize }} valide{{ active_count|pluralize }}</span>
+        </div>
+
+        {% if licenses %}
+            <div class="license-grid">
+                {% for license in licenses %}
+                    <article class="license-card license-card-premium">
+                        <div class="license-top">
+                            <div>
+                                <h3 class="license-title">Licence {{ forloop.counter }}</h3>
+                                <p class="license-user">{{ license.user.username }}</p>
+                            </div>
+                            {% if license.is_valid %}
+                                <span class="status status-valid">Active</span>
+                            {% else %}
+                                <span class="status status-expired">Expiree</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="license-meta">
+                            <div class="meta-block">
+                                <span class="meta-label">Cle</span>
+                                <strong class="meta-value">{{ license.key }}</strong>
+                            </div>
+                            <div class="meta-block">
+                                <span class="meta-label">Expire le</span>
+                                <strong class="meta-value">{{ license.expires_at|date:"d M Y - H:i" }}</strong>
+                            </div>
+                            <div class="meta-block">
+                                <span class="meta-label">Creee le</span>
+                                <strong class="meta-value">{{ license.created_at|date:"d M Y - H:i" }}</strong>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <h3>Aucune licence pour le moment</h3>
+                <p>
+                    Ton espace est pret. Des qu'une licence sera associee a ton compte,
+                    elle apparaitra ici avec son statut, sa date d'expiration et sa cle.
+                </p>
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

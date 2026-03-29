@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+    <section class="auth-shell">
+        <div class="auth-layout">
+            <div class="auth-side auth-side-highlight">
+                <span class="eyebrow">Nouveau compte</span>
+                <h1>Active ton acces Ironbot.</h1>
+                <p class="subtitle">
+                    Cree un compte personnel pour gerer tes licences dans un environnement plus propre,
+                    plus moderne et mieux cloisonne.
+                </p>
+                <div class="trust-row">
+                    <span>Compte personnel</span>
+                    <span>Email verifie cote metier</span>
+                    <span>Donnees isolees</span>
+                </div>
+            </div>
+
+            <div class="auth-card auth-card-strong">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div>
+                        <label for="{{ form.username.id_for_label }}">Nom d'utilisateur</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
+                    <div>
+                        <label for="{{ form.email.id_for_label }}">Adresse email</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+                    <div>
+                        <label for="{{ form.phone_number.id_for_label }}">Telephone</label>
+                        {{ form.phone_number }}
+                        {{ form.phone_number.errors }}
+                    </div>
+                    <div>
+                        <label for="{{ form.password1.id_for_label }}">Mot de passe</label>
+                        {{ form.password1 }}
+                        {{ form.password1.errors }}
+                    </div>
+                    <div>
+                        <label for="{{ form.password2.id_for_label }}">Confirmation du mot de passe</label>
+                        {{ form.password2 }}
+                        {{ form.password2.errors }}
+                    </div>
+                    <button class="nav-button auth-submit" type="submit">Creer mon compte</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

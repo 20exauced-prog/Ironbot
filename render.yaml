@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: ironbot
+    runtime: python
+    plan: starter
+    buildCommand: ./build.sh
+    startCommand: gunicorn sitebot.wsgi:application -c gunicorn.conf.py
+    healthCheckPath: /health/
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: ironbot.onrender.com
+      - key: DJANGO_CSRF_TRUSTED_ORIGINS
+        value: https://ironbot.onrender.com
+      - key: DJANGO_SECURE_SSL_REDIRECT
+        value: "True"
+      - key: DJANGO_SECURE_HSTS_SECONDS
+        value: "31536000"
+      - key: DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS
+        value: "True"
+      - key: DJANGO_SECURE_HSTS_PRELOAD
+        value: "True"
+      - key: DJANGO_LOGIN_RATE_LIMIT_ATTEMPTS
+        value: "7"
+      - key: DJANGO_LOGIN_RATE_LIMIT_WINDOW_SECONDS
+        value: "900"
+      - key: DJANGO_ADMIN_PATH
+        generateValue: true
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ironbot-db
+          property: connectionString
+
+databases:
+  - name: ironbot-db
+    plan: basic-256mb

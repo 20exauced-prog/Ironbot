@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+    <section class="auth-shell">
+        <div class="auth-layout">
+            <div class="auth-side auth-side-highlight">
+                <span class="eyebrow">Acces securise</span>
+                <h1>Entre dans le cockpit Ironbot.</h1>
+                <p class="subtitle">
+                    Connecte-toi pour retrouver ton espace prive, tes licences et une interface construite
+                    pour inspirer confiance des les premieres secondes.
+                </p>
+                <div class="trust-row">
+                    <span>Session protegee</span>
+                    <span>Visibilite privee</span>
+                    <span>Controle utilisateur</span>
+                </div>
+            </div>
+
+            <div class="auth-card auth-card-strong">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div>
+                        <label for="{{ form.username.id_for_label }}">Nom d'utilisateur</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
+                    <div>
+                        <label for="{{ form.password.id_for_label }}">Mot de passe</label>
+                        {{ form.password }}
+                        {{ form.password.errors }}
+                    </div>
+                    <button class="nav-button auth-submit" type="submit">Entrer dans l'espace</button>
+                </form>
+                <p class="section-copy">Pas encore de compte ? <a href="{% url 'signup' %}">Creer un acces</a>.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
