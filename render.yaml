@@ -2,7 +2,7 @@ services:
   - type: web
     name: ironbot
     runtime: python
-    plan: starter
+    plan: free
     buildCommand: ./build.sh
     startCommand: gunicorn sitebot.wsgi:application -c gunicorn.conf.py
     healthCheckPath: /health/
@@ -39,4 +39,4 @@ services:
 
 databases:
   - name: ironbot-db
-    plan: basic-256mb
+    plan: free
