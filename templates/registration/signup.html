@@ -4,8 +4,8 @@
 
 {% block content %}
     <section class="auth-shell">
-        <div class="auth-layout">
-            <div class="auth-side auth-side-highlight">
+        <div class="auth-layout animate-fade-up">
+            <div class="auth-side auth-side-highlight animate-fade-up delay-1">
                 <span class="eyebrow">Nouveau compte</span>
                 <h1>Active ton acces Ironbot.</h1>
                 <p class="subtitle">
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="auth-card auth-card-strong">
+            <div class="auth-card auth-card-strong animate-fade-up delay-2">
                 <form method="post">
                     {% csrf_token %}
                     {{ form.non_field_errors }}
