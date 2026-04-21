@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Inscription{% endblock %}
 
@@ -7,10 +8,9 @@
         <div class="auth-layout animate-fade-up">
             <div class="auth-side auth-side-highlight animate-fade-up delay-1">
                 <span class="eyebrow">Nouveau compte</span>
-                <h1>Active ton acces Ironbot.</h1>
+                <h1>Ouvre ton acces Ironbot.</h1>
                 <p class="subtitle">
-                    Cree un compte personnel pour gerer tes licences dans un environnement plus propre,
-                    plus moderne et mieux cloisonne.
+                    Cree un compte personnel dans un environnement plus net, plus design et plus en phase avec le nouveau logo.
                 </p>
                 <div class="trust-row">
                     <span>Compte personnel</span>
@@ -20,6 +20,9 @@
             </div>
 
             <div class="auth-card auth-card-strong animate-fade-up delay-2">
+                <div class="auth-logo-lockup">
+                    <img src="{% static 'img/ironbot-logo-new.png' %}" alt="Logo Ironbot">
+                </div>
                 <form method="post">
                     {% csrf_token %}
                     {{ form.non_field_errors }}

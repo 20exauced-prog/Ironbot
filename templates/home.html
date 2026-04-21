@@ -6,24 +6,24 @@
 {% block content %}
     <section class="hero hero-grid animate-fade-up">
         <div class="hero-copy">
-            <span class="eyebrow animate-fade-up delay-1">Robot trader intelligent</span>
-            <h1 class="animate-fade-up delay-2">Un cockpit visuel plus premium pour Ironbot.</h1>
+            <span class="eyebrow animate-fade-up delay-1">Trading automation studio</span>
+            <h1 class="animate-fade-up delay-2">Une presence plus nette, plus calme, plus futuriste.</h1>
             <p class="subtitle animate-fade-up delay-3">
-                J'ai rapproché le site d'un style landing page moderne: fond sombre, lumières diffuses,
-                gros message central, interface produit mise en avant et call-to-action plus assumés.
+                Ironbot devient une plateforme au langage visuel plus editorial: contraste fort,
+                espaces aeres, lignes fluides et halo technologique subtil pour inspirer precision et confiance.
             </p>
 
             <div class="cta-row animate-fade-up delay-4">
-                <a class="cta-primary" href="{% url 'my_licenses' %}">Ouvrir le dashboard</a>
+                <a class="cta-primary" href="{% url 'my_licenses' %}">Explorer la plateforme</a>
                 {% if not request.user.is_authenticated %}
-                    <a class="cta-secondary" href="{% url 'signup' %}">Creer un compte</a>
+                    <a class="cta-secondary" href="{% url 'signup' %}">Ouvrir un acces</a>
                 {% endif %}
             </div>
 
             <div class="trust-row">
-                <span>Interface trader inspiree des landing pages SaaS</span>
-                <span>Connexion securisee</span>
-                <span>Acces prive par utilisateur</span>
+                <span>Design aligne au nouveau logo</span>
+                <span>Acces securise</span>
+                <span>Espace prive par utilisateur</span>
             </div>
         </div>
 
@@ -33,53 +33,53 @@
             </div>
 
             <div class="dashboard-card dashboard-float animate-fade-up delay-5">
-                <span class="mini-label">Licences actives</span>
-                <strong class="float-number">24</strong>
-                <p>Une presentation plus nette pour un outil qui doit inspirer confiance.</p>
+                <span class="mini-label">Signal de marque</span>
+                <strong class="float-number">Fluid</strong>
+                <p>Une identite plus sobre pour faire sentir l'innovation avant meme la premiere interaction.</p>
             </div>
         </div>
     </section>
 
     <section class="stats-band">
         <article class="stat-card stat-dark animate-fade-up delay-2">
-            <span class="stat-label">Look</span>
-            <strong class="stat-value">Premium</strong>
+            <span class="stat-label">Direction</span>
+            <strong class="stat-value">Minimal</strong>
         </article>
         <article class="stat-card stat-dark animate-fade-up delay-3">
-            <span class="stat-label">Parcours</span>
-            <strong class="stat-value">Fluide</strong>
+            <span class="stat-label">Presence</span>
+            <strong class="stat-value">Claire</strong>
         </article>
         <article class="stat-card stat-dark animate-fade-up delay-4">
-            <span class="stat-label">Positionnement</span>
-            <strong class="stat-value">Trader SaaS</strong>
+            <span class="stat-label">Signature</span>
+            <strong class="stat-value">Future</strong>
         </article>
         <article class="stat-card stat-dark animate-fade-up delay-5">
-            <span class="stat-label">Base</span>
-            <strong class="stat-value">Solide</strong>
+            <span class="stat-label">Univers</span>
+            <strong class="stat-value">Tech luxe</strong>
         </article>
     </section>
 
     <section class="list-panel animate-fade-up delay-2">
         <div class="panel-head">
             <div>
-                <h2>Ce qui change dans le visuel</h2>
-                <p class="section-copy">On s'eloigne du template brut pour tendre vers une page produit plus impactante.</p>
+                <h2>Ce que raconte ce nouveau design</h2>
+                <p class="section-copy">Le site accompagne maintenant l'ADN du logo: plus graphique, plus intelligent, moins aggressif.</p>
             </div>
-            <span class="badge">Inspiration reinterpretée</span>
+            <span class="badge">Nouvelle direction</span>
         </div>
 
         <div class="feature-grid">
             <article class="feature-card animate-fade-up delay-3">
-                <h3>Hero plus spectaculaire</h3>
-                <p>Le haut de page met davantage en scene Ironbot avec un message fort, des halos et une maquette d'interface.</p>
+                <h3>Silhouette plus editoriale</h3>
+                <p>Les grands espaces, le blanc casse et les halos cyan-lime mettent le logo au centre sans lourdeur.</p>
             </article>
             <article class="feature-card animate-fade-up delay-4">
-                <h3>Direction plus technologique</h3>
-                <p>Le fond sombre, les reflets et les contrastes donnent un rendu plus proche des pages SaaS modernes.</p>
+                <h3>Technologie plus douce</h3>
+                <p>On remplace l'agressivite du dark SaaS par une sophistication plus calme et plus memorisable.</p>
             </article>
             <article class="feature-card animate-fade-up delay-5">
-                <h3>Conversion plus claire</h3>
-                <p>Les boutons principaux et la lecture de l'offre sont plus evidents des les premieres secondes.</p>
+                <h3>Marque plus coherente</h3>
+                <p>Accueil, connexion, licences et branding parlent enfin le meme langage visuel autour d'Ironbot.</p>
             </article>
         </div>
     </section>

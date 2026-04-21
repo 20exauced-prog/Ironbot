@@ -7,10 +7,12 @@
     <title>{% block title %}Ironbot{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/site.css' %}">
 </head>
 <body>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
     <div class="page-shell">
         <header class="site-nav">
             <a href="{% url 'home' %}" class="brand">
@@ -19,7 +21,7 @@
                 </span>
                 <span class="brand-copy">
                     <strong>Ironbot</strong>
-                    <span>Robot trader et espace licences</span>
+                    <span>Trading the future</span>
                 </span>
             </a>
 
@@ -50,7 +52,7 @@
         </main>
 
         <footer>
-            Ironbot dispose maintenant d'une base propre pour evoluer sans repartir de zero.
+            Ironbot, une interface plus claire pour piloter l'avenir du trading.
         </footer>
     </div>
 </body>
